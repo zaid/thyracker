@@ -1,0 +1,16 @@
+= form_for(@sample) do |f|
+  = render 'shared/error_messages', :object => @sample
+  .field
+    = f.label :taken_on
+    = f.date_select :taken_on
+  .field
+    = f.label :tsh
+    = f.text_field :tsh
+  .field
+    = f.label :t3
+    = f.text_field :t3
+  .field
+    = f.label :t4
+    = f.text_field :t4
+  .actions
+    = f.submit
