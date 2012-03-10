@@ -25,7 +25,6 @@ When /^I fill the "([^"]*)" field with "([^"]*)"$/ do |field, value|
 end
 
 Then /^I should be on the sample details page$/ do
-  pending "Implement dynamic titles"
   page.should have_selector('head title', :text => "Thyracker | Sample Details")
 end
 
@@ -39,7 +38,10 @@ Then /^I should see an error message indicating that the sample is missing requi
 end
 
 Then /^the sample should have "([^"]*)" in the "([^"]*)" field$/ do |value, field|
-  page.should have_content("#{field}: #{value}")
+  class_name = '.' + field.downcase.gsub(/\s/, '_')
+  within(class_name) do
+    page.should have_content(value)
+  end
 end
 
 Then /^I should not see any samples$/ do

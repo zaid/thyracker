@@ -20,6 +20,7 @@ class SamplesController < ApplicationController
   end
 
   def show
+    @title = 'Sample Details'
     @sample = Sample.find(params[:id])
   end
 end

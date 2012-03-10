@@ -7,7 +7,7 @@ Feature: add a new sample
   Scenario: add a new sample containing a value for TSH, T3 and T4
     Given that I am logged-in
     And that I am on the 'Add sample' page
-    When I fill the 'Taken on' field with "2011-03-8"
+    When I fill the 'Taken on' field with "2012-03-8"
     And I fill the "Tsh" field with "4.0"
     And I fill the "T3" field with "7.4"
     And I fill the "T4" field with "2.1"

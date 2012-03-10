@@ -5,3 +5,7 @@ end
 When /^I click on the "([^"]*)" button$/ do |button_label|
   click_button(button_label)
 end
+
+When /^I visit "([^"]*)"/ do |url|
+  visit(url)
+end
