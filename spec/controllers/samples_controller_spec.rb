@@ -59,9 +59,24 @@ describe SamplesController do
   end
 
   describe "GET 'index'" do
+
+    before(:each) do
+      @samples = [
+        {"tsh" => 4.5, "t3" => 2.2, "t4" => 5},
+        {"tsh" => 5.5, "t3" => 1.5, "t4" => 3}
+      ]
+
+      Sample.stub(:all).and_return(@samples)
+    end
+
     it "returns http success" do
-      get 'index'
+      get :index
       response.should be_success
+    end
+
+    it "should return a list of all samples" do
+      get 'index'
+      assigns(:samples).should eq(@samples)
     end
   end
 
@@ -76,5 +91,4 @@ describe SamplesController do
       response.should be_success
     end
   end
-
 end

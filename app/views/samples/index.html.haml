@@ -1,0 +1,3 @@
+%table.samples
+  - @samples.each do |sample|
+    = render :partial => 'sample', :locals => { :sample => sample }

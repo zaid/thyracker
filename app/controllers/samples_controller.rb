@@ -16,6 +16,7 @@ class SamplesController < ApplicationController
   end
 
   def index
+    @samples = Sample.all
   end
 
   def show
