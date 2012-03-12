@@ -16,3 +16,6 @@
 
 # Ignore the project-specific .rvmrc
 .rvmrc
+
+# Ignore Vim's swap files
+*.swp
