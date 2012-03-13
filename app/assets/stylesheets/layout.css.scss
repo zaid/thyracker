@@ -1,0 +1,38 @@
+@import "bootstrap";
+
+/* Variables */
+$background: #fafafa;
+$headerBackground: #073642;
+
+.container {
+  @include box-shadow(0 0 10px #888);
+}
+
+#header {
+  background-color: $headerBackground;
+  color: #839496;
+  height: 50px;
+  line-height: 50px;
+
+  #header-logo {
+    text-shadow: #444 1px 1px 1px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 24pt;
+    margin-left: 15px;
+  }
+}
+
+#content {
+  padding: 20px 5px 5px 5px;
+  background-color: $background;
+}
+
+#footer {
+  float: none;
+  text-align: center;
+  padding-top: 15px;
+
+  ul {
+    @extend .unstyled;
+  }
+}

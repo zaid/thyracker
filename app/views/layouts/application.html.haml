@@ -5,11 +5,16 @@
   = stylesheet_link_tag    "application", :media => "all"
   = javascript_include_tag "application"
   = csrf_meta_tags
-%body>
+%body
+  .container
+    = render 'layouts/header'
 
-  - flash.each do |key, value|
-    %div{:class => "flash #{key}"}= value
+    #content
+      - flash.each do |key, value|
+        %div{:class => "flash #{key}"}= value
 
-  = link_to 'Samples', samples_path
+      = link_to 'Samples', samples_path
 
-  = yield
+      = yield
+
+  = render 'layouts/footer'

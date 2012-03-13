@@ -35,6 +35,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'haml'
 gem 'mongoid', '~> 2.4'
 gem 'bson_ext', '~> 1.5'
+gem 'bootstrap-sass', '~> 2.0.1'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
