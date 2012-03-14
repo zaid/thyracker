@@ -9,3 +9,7 @@ end
 When /^I visit "([^"]*)"/ do |url|
   visit(url)
 end
+
+Then /^I should see a link labeled "([^"]*)"$/ do |link_name|
+  page.should have_selector("a", :text => link_name)
+end

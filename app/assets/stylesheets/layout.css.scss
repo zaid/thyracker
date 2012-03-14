@@ -2,24 +2,67 @@
 
 /* Variables */
 $background: #fafafa;
+$lineHeight: 50px;
 $headerBackground: #073642;
+$headerHeight: 50px;
+$headerTextColor: #839496;
 
 .container {
   @include box-shadow(0 0 10px #888);
 }
 
-#header {
+/* mixins */
+@mixin header-common {
   background-color: $headerBackground;
-  color: #839496;
-  height: 50px;
-  line-height: 50px;
+  line-height: $lineHeight;
+  height: $headerHeight;
+}
+
+#header {
+  @include makeRow();
+  @include header-common;
+  
+  color: $headerTextColor;
+  margin-left: 0px;
 
   #header-logo {
+    @include makeColumn(2);
+
     text-shadow: #444 1px 1px 1px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 24pt;
-    margin-left: 15px;
   }
+
+  #header-navigation {
+    @include makeColumn(4);
+
+    @extend .navbar;
+
+    #inner-navigation {
+      @extend .navbar-inner;
+
+      ul {
+        @extend .nav;
+
+        li {
+          a {
+            color: $headerTextColor;
+            font-weight: bold;
+
+            padding-top: 0;
+            padding-bottom: 0;
+
+            line-height: $lineHeight;
+
+
+            &:hover {
+              background-color: lighten($headerBackground, 10%);
+            }
+          }
+        }
+      }
+    }
+  } 
 }
 
 #content {

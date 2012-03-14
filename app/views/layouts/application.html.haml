@@ -13,8 +13,6 @@
       - flash.each do |key, value|
         %div{:class => "flash #{key}"}= value
 
-      = link_to 'Samples', samples_path
-
       = yield
 
   = render 'layouts/footer'
