@@ -9,6 +9,7 @@
         %th TSH
         %th T3
         %th T4
+        %th Actions
     %tbody
       - @samples.each do |sample|
         = render :partial => 'sample', :locals => { :sample => sample }

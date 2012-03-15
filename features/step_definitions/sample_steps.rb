@@ -53,3 +53,9 @@ Then /^I should see my samples$/ do
     page.should have_content("#{sample.tsh} #{sample.t3} #{sample.t4}")
   end
 end
+
+Then /^I should see a "([^"]*)" button for each sample$/ do |button_label|
+  @samples.each do |sample|
+    page.should have_link("Details", :href => sample_path(sample))
+  end
+end

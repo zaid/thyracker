@@ -9,6 +9,10 @@
 }
 
 .sample {
+  a {
+    @extend .btn, .btn-info;
+  }
+
   h4 {
     display: inline;
   }

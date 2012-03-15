@@ -25,8 +25,8 @@ describe "samples/index" do
     rendered.should have_selector("table", :class => "samples")
   end
 
-  it "should have table column headers for 'Taken on', 'TSH', 'T3' and 'T4'" do
-    %w[Taken\ on TSH T3 T4].each do |column_header|
+  it "should have table column headers for 'Taken on', 'TSH', 'T3', 'T4' and 'Actions'" do
+    %w[Taken\ on TSH T3 T4 Actions].each do |column_header|
       rendered.should have_selector("table thead tr th", :text => column_header)
     end
   end
