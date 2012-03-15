@@ -1,3 +1,6 @@
+.sample-actions
+  = link_to "Add sample", new_sample_path
+
 %table.samples
   - @samples.each do |sample|
     = render :partial => 'sample', :locals => { :sample => sample }

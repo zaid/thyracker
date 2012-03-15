@@ -13,3 +13,11 @@
     display: inline;
   }
 }
+
+.sample-actions {
+  padding-bottom: 1em;
+
+  a {
+    @extend .btn;
+  }
+}

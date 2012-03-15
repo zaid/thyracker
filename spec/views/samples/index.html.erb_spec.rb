@@ -16,4 +16,8 @@ describe "samples/index" do
   it "should show a partial for each sample" do
     rendered.should render_template(:partial => "_sample", :count => @samples_list.size)
   end
+
+  it "should have a link to add new samples" do
+    rendered.should have_link("Add sample", :href => new_sample_path)
+  end
 end
