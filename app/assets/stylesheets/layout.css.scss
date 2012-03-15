@@ -71,11 +71,18 @@ $headerTextColor: #839496;
 }
 
 #footer {
+  @extend .row;
+
   float: none;
   text-align: center;
   padding-top: 15px;
 
   ul {
     @extend .unstyled;
+
+    li {
+      @extend .span1;
+      display: inline-block;
+    }
   }
 }
