@@ -12,7 +12,7 @@ describe "samples/new" do
     rendered.should have_selector("select", :id => "sample_taken_on_1i")
     rendered.should have_selector("select", :id => "sample_taken_on_2i")
     rendered.should have_selector("select", :id => "sample_taken_on_3i")
-    rendered.should have_field("Tsh")
+    rendered.should have_field("TSH")
     rendered.should have_field("T3")
     rendered.should have_field("T4")
     rendered.should have_button("Create Sample")
