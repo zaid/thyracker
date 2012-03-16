@@ -5,3 +5,7 @@
     background: $errorBackground;
   }
 }
+
+.flash, .success {
+  @extend .alert, .alert-success;
+}
