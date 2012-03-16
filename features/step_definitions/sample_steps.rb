@@ -4,12 +4,21 @@ end
 
 Given /^that I have a sample with values "([^"]*)", "([^"]*)" and "([^"]*)"$/ do |tsh, t3, t4|
   @samples ||= []
-  @samples << Factory(:sample, tsh: tsh, t3: t3, t4: t4)
+  @samples << FactoryGirl.create(:sample, tsh: tsh, t3: t3, t4: t4)
 end
 
 Given /^that I am on the home page$/ do
   visit "/"
 end
+
+Given /^that I am on the sample listing page$/ do
+  visit "/samples"
+end
+
+Given /^that I am on the sample details page$/ do
+  visit sample_path(@samples.first)
+end
+
 
 When /^I fill the 'Taken on' field with "([^"]*)"$/ do |value|
   date_tokens = value.split('-')
@@ -22,6 +31,16 @@ end
 
 When /^I fill the "([^"]*)" field with "([^"]*)"$/ do |field, value|
   fill_in(field, :with => value)
+end
+
+When /^I click the 'Delete' button for the first sample$/ do
+  within(".samples") do
+    page.find("tr", :text => @samples.first.tsh.to_s).click_link "Delete"
+  end
+end
+
+When /^I click the 'Delete' button$/ do
+  click_link("Delete")
 end
 
 Then /^I should be on the sample details page$/ do
@@ -58,4 +77,16 @@ Then /^I should see a "([^"]*)" button for each sample$/ do |button_label|
   @samples.each do |sample|
     page.should have_link("Details", :href => sample_path(sample))
   end
+end
+
+Then /^the first sample should be deleted$/ do
+  Sample.exists?(conditions: { id: @samples.first.id }).should be_false
+end
+
+Then /^the second sample should not be deleted$/ do
+  Sample.exists?( conditions: { id: @samples.second.id }).should be_true
+end
+
+Then /^the sample should be deleted$/ do
+  Sample.exists?(conditions: { id: @samples.first.id }).should be_false
 end

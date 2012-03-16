@@ -11,4 +11,6 @@
   .t4
     %h4 T4:
     = @sample.t4
+  .sample-actions
+    = link_to "Delete", sample_path(@sample), method: :delete, class: "sample-delete"
 

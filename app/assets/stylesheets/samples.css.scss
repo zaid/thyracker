@@ -6,15 +6,27 @@
 
 .samples {
   @extend .table, .table-striped, .table-bordered;
+
+  .actions-column {
+    @extend .span2;
+  }
 }
 
 .sample {
-  a {
+  a.sample-details {
     @extend .btn, .btn-info;
+  }
+
+  a.sample-delete {
+    @extend .btn, .btn-danger;
   }
 
   h4 {
     display: inline;
+  }
+
+  .sample-actions {
+    padding-top: 1em;
   }
 }
 

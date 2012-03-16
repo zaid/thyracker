@@ -91,4 +91,22 @@ describe SamplesController do
       response.should be_success
     end
   end
+
+  describe "DELETE 'destroy'" do
+
+    before(:each) do
+      @samples = FactoryGirl.create_list(:sample, 10)
+    end
+
+    it "should destroy the sample" do
+      lambda do
+        delete :destroy, :id => @samples.first._id
+      end.should change(Sample, :count).by(-1)
+    end
+
+    it "should redirect to the sample listing page" do
+      delete :destroy, :id => @samples.first._id
+      response.should redirect_to(samples_path)
+    end
+  end
 end

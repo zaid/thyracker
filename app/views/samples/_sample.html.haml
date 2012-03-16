@@ -3,4 +3,6 @@
   %td= sample.tsh
   %td= sample.t3
   %td= sample.t4
-  %td= link_to "Details", sample_path(sample)
+  %td 
+    = link_to "Details", sample_path(sample), class: "sample-details"
+    = link_to "Delete", sample_path(sample), method: :delete, class: "sample-delete"

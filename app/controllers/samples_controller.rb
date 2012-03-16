@@ -1,4 +1,5 @@
 class SamplesController < ApplicationController
+  before_filter :get_sample, :only => [ :show, :destroy ]
 
   def new
     @sample = Sample.new
@@ -23,4 +24,15 @@ class SamplesController < ApplicationController
     @title = 'Sample Details'
     @sample = Sample.find(params[:id])
   end
+
+  def destroy
+    @sample.destroy
+    redirect_to samples_path
+  end
+
+  private
+    
+    def get_sample
+      @sample = Sample.find(params[:id])
+    end
 end

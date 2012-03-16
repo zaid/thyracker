@@ -13,4 +13,8 @@ describe "samples/show" do
     rendered.should have_content(@sample.t3)
     rendered.should have_content(@sample.t4)
   end
+
+  it "should show a 'Delete' link" do
+    rendered.should have_link("Delete")
+  end
 end
