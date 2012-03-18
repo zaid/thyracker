@@ -12,7 +12,7 @@ Feature: add a new sample
     And I fill the "T3" field with "7.4"
     And I fill the "T4" field with "2.1"
     And I click on the "Create Sample" button
-    Then I should see a message indicating that the sample was added
+    Then I should see a message indicating that the sample was "added"
     And I should be on the sample details page
     And the sample should have "2012-03-08" in the "Taken on" field
     And the sample should have "4.0" in the "TSH" field
@@ -28,5 +28,3 @@ Feature: add a new sample
     And I fill the "T4" field with ""
     And I click on the "Create Sample" button
     Then I should see an error message indicating that the sample is missing required fields
-
-

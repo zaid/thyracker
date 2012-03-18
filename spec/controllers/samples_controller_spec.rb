@@ -109,4 +109,57 @@ describe SamplesController do
       response.should redirect_to(samples_path)
     end
   end
+
+  describe "PUT 'update'" do
+
+    before(:each) do
+      @sample = FactoryGirl.create(:sample, taken_on: "2012-03-15", tsh: 1.1, t3: 2.2, t4: 3.3)
+      @attr = { taken_on: "2009-09-12", tsh: 6.3, t3: 3.2, t4: 2.7 }
+    end
+
+    context "success" do
+      it "should update the sample's taken_on value" do
+        date_format = "%Y-%M-%D"
+        put :update, :id => @sample, :sample => @attr
+        @sample.reload
+        @sample.taken_on.to_formatted_s(date_format).should == @attr[:taken_on]
+      end
+
+      it "should update the sample's TSH value" do
+        put :update, :id => @sample, :sample => @attr
+        @sample.reload
+        @sample.tsh.should == @attr[:tsh]
+      end
+
+      it "should update the sample's T3 value" do
+        put :update, :id => @sample, :sample => @attr
+        @sample.reload
+        @sample.t3.should == @attr[:t3]
+      end
+
+      it "should update the sample's T4 value" do
+        put :update, :id => @sample, :sample => @attr
+        @sample.reload
+        @sample.t4.should == @attr[:t4]
+      end
+
+      it "should redirect to the sample details page" do
+        put :update, :id => @sample, :sample => @attr
+        response.should redirect_to(sample_path(@sample))
+      end
+    end
+
+    context "failure" do
+      
+      before(:each) do
+        @sample = FactoryGirl.create(:sample)
+        @attr = { taken_on: "", tsh: nil, t3: nil, t4: nil }
+      end
+
+      it "should render the edit page" do
+        put :update, :id => @sample, :sample => @attr
+        response.should render_template('edit')
+      end
+    end
+  end
 end

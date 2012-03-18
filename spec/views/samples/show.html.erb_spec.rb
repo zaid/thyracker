@@ -17,4 +17,8 @@ describe "samples/show" do
   it "should show a 'Delete' link" do
     rendered.should have_link("Delete")
   end
+
+  it "should show a 'Update' link" do
+    rendered.should have_link("Update")
+  end
 end

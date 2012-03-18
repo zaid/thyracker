@@ -1,5 +1,5 @@
 class SamplesController < ApplicationController
-  before_filter :get_sample, :only => [ :show, :destroy ]
+  before_filter :get_sample, :only => [ :show, :edit, :update, :destroy ]
 
   def new
     @sample = Sample.new
@@ -23,6 +23,18 @@ class SamplesController < ApplicationController
   def show
     @title = 'Sample Details'
     @sample = Sample.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @sample.update_attributes(params[:sample])
+      flash[:success] = "Sample updated!"
+      redirect_to(@sample)
+    else
+      render 'edit'
+    end
   end
 
   def destroy

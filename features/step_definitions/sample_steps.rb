@@ -43,12 +43,18 @@ When /^I click the 'Delete' button$/ do
   click_link("Delete")
 end
 
+When /^I click the 'Update' button for the first sample$/ do
+  within(".samples") do
+    page.find("tr", :text => @samples.first.tsh.to_s).click_link "Update"
+  end
+end
+
 Then /^I should be on the sample details page$/ do
   page.should have_selector('head title', :text => "Thyracker | Sample Details")
 end
 
-Then /^I should see a message indicating that the sample was added$/ do
-  page.should have_selector("div", :class => "flash success", :text => "Sample added!")
+Then /^I should see a message indicating that the sample was "([^"]*)"$/ do |action_name|
+  page.should have_selector("div", :class => "flash success", :text => "Sample #{action_name}!")
 end
 
 Then /^I should see an error message indicating that the sample is missing required fields/ do
