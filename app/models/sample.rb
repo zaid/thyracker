@@ -10,7 +10,7 @@ class Sample
   field :t4, :type => Float
 
   validates :taken_on, :presence => true
-  validates :tsh, :presence => true
-  validates :t3, :presence => true
-  validates :t4, :presence => true
+  validates :tsh, :presence => true, numericality: { greater_than_or_equal_to: 0.0 }
+  validates :t3, :presence => true, numericality: { greater_than_or_equal_to: 0.0 }
+  validates :t4, :presence => true, numericality: { greater_than_or_equal_to: 0.0 }
 end

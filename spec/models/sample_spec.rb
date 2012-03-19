@@ -35,5 +35,20 @@ describe Sample do
       no_t4_sample = Sample.new(@attr.merge(t4: ''))
       no_t4_sample.should_not be_valid
     end
+
+    it "should only accept numerical values for 'tsh'" do
+      non_numerical_tsh_sample = Sample.new(@attr.merge(tsh: 'moo'))
+      non_numerical_tsh_sample.should_not be_valid
+    end
+
+    it "should only accept numerical values for 't3'" do
+      non_numerical_t3_sample = Sample.new(@attr.merge(t3: 'moo'))
+      non_numerical_t3_sample.should_not be_valid
+    end
+
+    it "should only accept numerical values for 't4'" do
+      non_numerical_t4_sample = Sample.new(@attr.merge(t4: 'moo'))
+      non_numerical_t4_sample.should_not be_valid
+    end
   end
 end
