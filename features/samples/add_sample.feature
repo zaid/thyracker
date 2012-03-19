@@ -28,3 +28,8 @@ Feature: add a new sample
     And I fill the "T4" field with ""
     And I click on the "Create Sample" button
     Then I should see an error message indicating that the sample is missing required fields
+
+  Scenario: new sample page title
+    Given that I am logged-in
+    When I visit "/samples/new"
+    Then the page title should be "Thyracker | New sample"

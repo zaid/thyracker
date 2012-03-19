@@ -2,6 +2,7 @@ class SamplesController < ApplicationController
   before_filter :get_sample, :only => [ :show, :edit, :update, :destroy ]
 
   def new
+    @title = 'New sample'
     @sample = Sample.new
   end
 
@@ -17,6 +18,7 @@ class SamplesController < ApplicationController
   end
 
   def index
+    @title = 'Sample listing'
     @samples = Sample.all
   end
 
@@ -26,6 +28,7 @@ class SamplesController < ApplicationController
   end
 
   def edit
+    @title = 'Update sample'
   end
 
   def update

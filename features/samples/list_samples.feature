@@ -27,3 +27,9 @@ Feature: list samples
     Then I should see a "Details" button for each sample
     And I should see a "Delete" button for each sample
 
+  Scenario: sample listing page title
+    Given that I am logged-in
+    And that I am on the home page
+    When I click on the "Samples" link
+    Then the page title should be "Thyracker | Sample listing"
+

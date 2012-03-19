@@ -13,3 +13,7 @@ end
 Then /^I should see a link labeled "([^"]*)"$/ do |link_name|
   page.should have_selector("a", :text => link_name)
 end
+
+Then /^the page title should be "([^"]*)"$/ do |title|
+  page.should have_selector("head title", :text => title)
+end
