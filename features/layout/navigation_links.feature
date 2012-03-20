@@ -15,3 +15,7 @@ Feature: navigation bar
   Scenario: 'Charts' link
     When I visit "/"
     Then I should see a link labeled "Charts"
+
+  Scenario: 'Thyracker' logo link
+    When I visit "/"
+    Then I should see a link labeled "Thyracker"
