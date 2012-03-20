@@ -1,9 +1,9 @@
 Thyracker::Application.routes.draw do
-
   resources :samples
 
   match 'home', :to => 'pages#home'
   match 'contact', :to => 'pages#contact'
+  match 'charts', :to => 'charts#index'
 
   root :to => 'pages#home'
 

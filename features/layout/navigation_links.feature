@@ -11,3 +11,7 @@ Feature: navigation bar
   Scenario: 'Samples' link
     When I visit "/"
     Then I should see a link labeled "Samples"
+
+  Scenario: 'Charts' link
+    When I visit "/"
+    Then I should see a link labeled "Charts"

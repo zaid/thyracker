@@ -1,0 +1,24 @@
+// Place all the styles related to the charts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap";
+
+@mixin chart-common {
+  height: 300px;
+  width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#tsh-chart {
+  @include chart-common;
+}
+
+#t3-chart {
+  @include chart-common;
+}
+
+#t4-chart {
+  @include chart-common;
+}
