@@ -14,8 +14,6 @@ make_chart = (sample_name, sample_data) ->
     },
     series: [{ 
       name: upcased_sample_name,
-      pointInterval: gon.point_interval,
-      pointStart: gon.point_start,
       data: sample_data
     }]
   });
