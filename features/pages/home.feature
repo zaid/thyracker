@@ -1,3 +1,4 @@
+@pages_wip
 Feature: home page
 
   As a designer
@@ -8,3 +9,8 @@ Feature: home page
     Given that I am not logged-in
     When I visit "/"
     Then I should see a page with a title of "Thyracker | Home"
+
+  Scenario: anonymous visitor greeted with a signup form
+    Given that I am not logged-in
+    When I visit "/"
+    Then I should see a sign-up form

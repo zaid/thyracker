@@ -1,3 +1,19 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap";
+
+.welcome {
+
+  // call makeRow() on the parent div
+  &:div {
+    @include makeRow();
+  }
+
+  @include makeColumn(6);
+}
+
+.welcome-content {
+  @include makeColumn(5);
+}
