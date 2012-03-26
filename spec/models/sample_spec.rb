@@ -8,10 +8,12 @@ describe Sample do
       t3: 6.2,
       t4: 2.2,
     }
+
+    @user = User.create(FactoryGirl.attributes_for(:user))
   end
 
   it "should create a sample given valid attributes" do
-    Sample.create!(@attr)
+    @user.samples.create!(@attr)
   end
 
   context "validations" do
@@ -49,6 +51,17 @@ describe Sample do
     it "should only accept numerical values for 't4'" do
       non_numerical_t4_sample = Sample.new(@attr.merge(t4: 'moo'))
       non_numerical_t4_sample.should_not be_valid
+    end
+  end
+
+  context 'associations' do
+
+    before(:each) do
+      @sample = @user.samples.create(@attr)
+    end
+
+    it "should have a 'user' association" do
+      @sample.should respond_to(:user)
     end
   end
 end

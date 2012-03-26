@@ -1,3 +1,4 @@
+@samples_wip
 Feature: add a new sample
 
   As a health-concerned person

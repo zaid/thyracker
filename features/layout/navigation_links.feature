@@ -9,10 +9,12 @@ Feature: navigation bar
     Then I should see a link labeled "Home"
 
   Scenario: 'Samples' link
+    Given that I am logged-in
     When I visit "/"
     Then I should see a link labeled "Samples"
 
   Scenario: 'Charts' link
+    Given that I am logged-in
     When I visit "/"
     Then I should see a link labeled "Charts"
 

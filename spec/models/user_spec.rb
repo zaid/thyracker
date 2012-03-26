@@ -45,5 +45,16 @@ describe User do
         mismatching_password_user.should_not be_valid
       end
     end
+
+    describe 'associations' do
+
+      before(:each) do
+        @user = User.create(@attr)
+      end
+
+      it "should have a 'samples' association" do
+        @user.should respond_to(:samples)
+      end
+    end
   end
 end

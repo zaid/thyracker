@@ -9,6 +9,8 @@ class Sample
   field :t3, :type => Float
   field :t4, :type => Float
 
+  embedded_in :user
+
   validates :taken_on, :presence => true
   validates :tsh, :presence => true, numericality: { greater_than_or_equal_to: 0.0 }
   validates :t3, :presence => true, numericality: { greater_than_or_equal_to: 0.0 }

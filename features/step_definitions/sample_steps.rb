@@ -4,7 +4,7 @@ end
 
 Given /^that I have a sample with values "([^"]*)", "([^"]*)" and "([^"]*)"$/ do |tsh, t3, t4|
   @samples ||= []
-  @samples << FactoryGirl.create(:sample, tsh: tsh, t3: t3, t4: t4)
+  @samples << FactoryGirl.create(:sample, user: @user, tsh: tsh, t3: t3, t4: t4)
 end
 
 Given /^that I am on the home page$/ do
@@ -86,13 +86,16 @@ Then /^I should see a "([^"]*)" button for each sample$/ do |button_label|
 end
 
 Then /^the first sample should be deleted$/ do
-  Sample.exists?(conditions: { id: @samples.first.id }).should be_false
+  @user.reload
+  @user.samples.where(_id: @samples.first.id).exists?.should be_false
 end
 
 Then /^the second sample should not be deleted$/ do
-  Sample.exists?( conditions: { id: @samples.second.id }).should be_true
+  @user.reload
+  @user.samples.where(_id: @samples.second.id).exists?.should be_true
 end
 
 Then /^the sample should be deleted$/ do
-  Sample.exists?(conditions: { id: @samples.first.id }).should be_false
+  @user.reload
+  @user.samples.where(_id: @samples.first.id).exists?.should be_false
 end

@@ -2,13 +2,25 @@ require 'spec_helper'
 
 describe ChartsController do
 
+  describe 'access control' do
+
+    it 'should require sign-ins' do
+      get :index
+      response.should redirect_to(root_path)
+    end
+  end
+
   describe "GET 'index'" do
 
     before(:each) do
+      @user = FactoryGirl.create(:user)
+
       @samples = []
-      @samples << FactoryGirl.create(:sample, taken_on: 5.days.ago)
-      @samples << FactoryGirl.create(:sample, taken_on: 30.days.ago)
-      @samples << FactoryGirl.create(:sample, taken_on: 5.days.from_now)
+      @samples << FactoryGirl.create(:sample, user: @user, taken_on: 5.days.ago)
+      @samples << FactoryGirl.create(:sample, user: @user, taken_on: 30.days.ago)
+      @samples << FactoryGirl.create(:sample, user: @user, taken_on: 5.days.from_now)
+
+      controller.stub!(:current_user).and_return(@user)
     end
 
     it "returns http success" do

@@ -1,7 +1,8 @@
 class ChartsController < ApplicationController
+  before_filter :authenticate
   
   def index
-    @samples = Sample.asc(:taken_on)
+    @samples = current_user.samples.asc(:taken_on)
 
     gon.tsh_samples = separate_samples_for(@samples, :tsh)
     gon.t3_samples = separate_samples_for(@samples, :t3)

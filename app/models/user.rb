@@ -9,6 +9,8 @@ class User
   field :email, :type => String
   field :password_digest, :type => String
 
+  embeds_many :samples
+
   has_secure_password
 
   validates :first_name, :presence => true

@@ -1,13 +1,14 @@
 class SamplesController < ApplicationController
+  before_filter :authenticate
   before_filter :get_sample, :only => [ :show, :edit, :update, :destroy ]
 
   def new
     @title = 'New sample'
-    @sample = Sample.new
+    @sample = current_user.samples.new
   end
 
   def create
-    @sample = Sample.new(params[:sample])
+    @sample = current_user.samples.new(params[:sample])
 
     if @sample.save
       flash[:success] = "Sample added!"
@@ -19,12 +20,11 @@ class SamplesController < ApplicationController
 
   def index
     @title = 'Sample listing'
-    @samples = Sample.all
+    @samples = current_user.samples.all
   end
 
   def show
     @title = 'Sample Details'
-    @sample = Sample.find(params[:id])
   end
 
   def edit
@@ -41,13 +41,13 @@ class SamplesController < ApplicationController
   end
 
   def destroy
-    @sample.destroy
+    current_user.samples.where(_id: @sample.id).destroy
     redirect_to samples_path
   end
 
   private
     
     def get_sample
-      @sample = Sample.find(params[:id])
+      @sample = current_user.samples.find(params[:id])
     end
 end
