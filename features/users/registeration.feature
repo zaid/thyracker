@@ -13,7 +13,8 @@ Feature: register a new user account
     And I fill the "Password" field with "secret"
     And I fill the "Password confirmation" field with "secret"
     Then I click on the "Sign up" button
-    Then I should see a message indicating that the sign-up was successful
+    And I should see a message indicating that the sign-up was successful
+    And I should be logged-in
 
   Scenario: attempt to register a new account that already exists
     Given that I am not logged-in
@@ -25,7 +26,7 @@ Feature: register a new user account
     And I fill the "Password" field with "secret"
     And I fill the "Password confirmation" field with "secret"
     Then I click on the "Sign up" button
-    Then I should see an error message indicating that the user already exists
+    And I should see an error message indicating that the user already exists
 
   Scenario: attempt to register a new account with empty fields
     Given that I am not logged-in
@@ -36,4 +37,4 @@ Feature: register a new user account
     And I fill the "Password" field with ""
     And I fill the "Password confirmation" field with ""
     Then I click on the "Sign up" button
-    Then I should see an error message indicating that there are missing required fields
+    And I should see an error message indicating that there are missing required fields
