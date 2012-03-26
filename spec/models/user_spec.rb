@@ -46,6 +46,37 @@ describe User do
       end
     end
 
+    describe 'emails' do
+
+      it 'should enforce uniqueness' do
+        User.create!(@attr)
+        duplicate_email_user = User.new(@attr)
+        duplicate_email_user.should_not be_valid
+      end
+
+      it 'should enforce case-insensitive uniqueness' do
+        User.create!(@attr)
+        duplicate_email_user = User.new(@attr.merge(email: @attr[:email].upcase))
+        duplicate_email_user.should_not be_valid
+      end
+
+      it 'should accept valid email addresses' do
+        addresses = %w[user@foo.com THE_user@foo.bar.org first.last@place.jp]
+        addresses.each do |address|
+          valid_email_user = User.new(@attr.merge(:email => address))
+          valid_email_user.should be_valid
+        end
+      end
+
+      it "should reject invalid email addresses" do
+        addresses = %w[user@foo,com THE_user_at_foo.bar.org first.last@place.]
+        addresses.each do |address|
+          invalid_email_user = User.new(@attr.merge(:email => address))
+          invalid_email_user.should_not be_valid
+        end
+      end
+    end
+
     describe 'associations' do
 
       before(:each) do
