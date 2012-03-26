@@ -1,4 +1,5 @@
 %h3.welcome Welcome to Thyracker!
 .welcome-content
-  %h3 Create a new account to start tracking your Thyroid performance
-  = render "users/user_form", :user => @user
+  - unless signed_in?
+    %h3 Create a new account to start tracking your Thyroid performance
+    = render "users/user_form", :user => @user

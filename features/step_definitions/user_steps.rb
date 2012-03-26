@@ -1,5 +1,12 @@
 Given /^that I am logged\-in$/ do
-  #page.should have_content("Logged-in as Joe Tester")
+  @user = FactoryGirl.create(:user)
+  
+  visit "/"
+  within("#header-signin") do
+    fill_in 'email', with: @user.email
+    fill_in 'password', with: @user.password
+    click_button "Sign in"
+  end
 end
 
 Given /^that I am not logged\-in$/ do

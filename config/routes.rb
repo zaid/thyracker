@@ -1,4 +1,6 @@
 Thyracker::Application.routes.draw do
+
+  resource :session, :only => [:create, :destroy]
   resources :users, :only => [:new, :create]
   resources :samples
 

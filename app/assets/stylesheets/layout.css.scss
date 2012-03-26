@@ -70,7 +70,38 @@ $headerTextColor: #839496;
         }
       }
     }
+  }
+
+  #header-signin {
+    form {
+      @include makeRow();
+      @extend .form-inline;
+
+      .field {
+       @include makeColumn(2);
+      }
+
+      .actions {
+        @include makeColumn(1);
+
+        input {
+          @extend .btn;
+        }
+      }
+    }
   } 
+
+  #header-signout {
+    @include makeColumn(3);
+
+    a {
+      color: $white;
+
+      &:hover {
+        color: $headerTextColor;
+      }
+    }
+  }
 }
 
 #content {

@@ -6,3 +6,9 @@
       %ul
         %li= link_to "Samples", samples_path
         %li= link_to "Charts", charts_path
+  - unless signed_in?
+    #header-signin
+      = render 'sessions/signin_form'
+  - else
+    #header-signout
+      = render 'sessions/signout_form'
