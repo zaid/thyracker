@@ -16,6 +16,7 @@ group :test do
   gem 'database_cleaner'
   gem 'rb-fsevent', :require => false
   gem 'factory_girl_rails'
+  gem 'simplecov', :require => false
 end
 
 # Gems used only for assets and not required

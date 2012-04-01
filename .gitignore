@@ -19,3 +19,6 @@
 
 # Ignore Vim's swap files
 *.swp
+
+# Ignore the simplecov's coverage results
+/coverage

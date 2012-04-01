@@ -59,9 +59,17 @@ Spork.prefork do
   # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
   Cucumber::Rails::Database.javascript_strategy = :truncation
 
+  unless ENV['DRB']
+    require 'simplecov'
+  end
+
 end
 
 Spork.each_run do
   # This code will be run each time you run your specs.
+
+  if ENV['DRB']
+    require 'simplecov'
+  end
 
 end
