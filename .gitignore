@@ -14,8 +14,8 @@
 /log/*.log
 /tmp
 
-# Ignore the project-specific .rvmrc
-.rvmrc
+# Ignore the project-specific .rbenv-version
+.rbenv-version
 
 # Ignore Vim's swap files
 *.swp
