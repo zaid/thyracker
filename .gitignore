@@ -22,3 +22,6 @@
 
 # Ignore the simplecov's coverage results
 /coverage
+
+# Ignore bundler's binstubs directory
+/bin
