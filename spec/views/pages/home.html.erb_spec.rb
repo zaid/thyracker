@@ -41,5 +41,9 @@ describe "pages/home" do
     it 'should not display a sign-up form' do
       rendered.should_not have_selector('form', :class => 'new_user')
     end
+
+    it 'should display some information on how to get started' do
+      rendered.should have_content('You can create new samples')
+    end
   end
 end

@@ -1,5 +1,16 @@
 %h3.welcome Welcome to Thyracker!
 .welcome-content
-  - unless signed_in?
+  - if signed_in?
+    %p
+      You can create new samples by going to the
+      = link_to "Samples", samples_path
+      page then clicking on the 'New Sample' button.
+      %br
+    %p
+      You can also view visualized form of your samples by going to the
+      = link_to "Charts", charts_path
+      page.
+
+  - else
     %h3 Create a new account to start tracking your Thyroid performance
     = render "users/user_form", :user => @user
