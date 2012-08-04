@@ -12,7 +12,7 @@ end
 
 group :test do
   gem 'rspec-rails'
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
   gem 'rb-fsevent', :require => false
   gem 'factory_girl_rails'
