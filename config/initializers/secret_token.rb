@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Thyracker::Application.config.secret_token = '84881b120515b23b123abae8a0890d3649070448917929684d91aa8672ec5cdf49a88336fd7a58cc309dc8270bcfaa3754b8ce93a594ea9ab4c3cf9cb4ab5b54'
+Thyracker::Application.config.secret_token = 'c9e21918d71e3e16049666e72a7cc2e35c7a3d1b56bc140127b8672214523e012b23b66ce8f2b76c5f87752a958e44b302c7b178894aca49d768c92dd3fc3bea'
