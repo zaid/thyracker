@@ -6,7 +6,7 @@ set :scm, :git
 set :repository,  "git@github.com:zaid/#{application}.git"
 set :branch, "master"
 
-set :user, "deployer"
+set :user, "zaid"
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
