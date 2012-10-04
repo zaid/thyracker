@@ -38,6 +38,7 @@ gem 'mongoid', '~> 2.4'
 gem 'bson_ext', '~> 1.5'
 gem 'bootstrap-sass', '~> 2.0.1'
 gem 'gon'
+gem 'newrelic_rpm'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
