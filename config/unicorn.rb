@@ -7,3 +7,4 @@ stdout_path "#{root}/log/unicorn.log"
 listen "/tmp/unicorn.thyracker.sock"
 worker_processes 2
 timeout 30
+preload_app true
