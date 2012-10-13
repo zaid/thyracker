@@ -14,15 +14,15 @@
 
 .sample {
   a.sample-details {
-    @extend .btn, .btn-info;
+    @extend .btn, .btn-small, .btn-info;
   }
 
   a.sample-update {
-    @extend .btn, .btn-warning;
+    @extend .btn, .btn-small, .btn-warning;
   }
 
   a.sample-delete {
-    @extend .btn, .btn-danger;
+    @extend .btn, .btn-small, .btn-danger;
   }
 
   h4 {
