@@ -1,50 +1,42 @@
-@import "bootstrap";
-
 /* Variables */
 $background: #fafafa;
-$lineHeight: 50px;
 $headerBackground: #073642;
 $headerHeight: 50px;
 $headerTextColor: #839496;
+
+$navbarBackground : $headerBackground;
+$navbarBackgroundHighlight: darken($headerBackground, 2%);
+$navbarText : $headerTextColor;
+$navbarLinkColor: $headerTextColor;
+$navbarLinkColorHover: #FFF;
+$navbarLinkBackgroundHover : lighten($headerBackground, 2%);
+$navbarHeight : $headerHeight;
+
+@import "bootstrap";
 
 .container {
   @include box-shadow(0 0 10px #888);
 }
 
-/* mixins */
-@mixin header-common {
-  background-color: $headerBackground;
-  line-height: $lineHeight;
-  height: $headerHeight;
-}
-
 #header {
-  @include makeRow();
-  @include header-common;
-  
-  color: $headerTextColor;
-  margin-left: 0px;
+  @extend .navbar;
 
-  #header-logo {
-    @include makeColumn(2);
+  .header-logo {
+    @extend .brand;
 
     text-shadow: #444 1px 1px 1px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 24pt;
+    font-size: 20pt;
 
-     a {
-       color: $headerTextColor;
-       &:hover {
-         color: $white;
-         text-decoration: none;
-       }
-     }
+    color: $headerTextColor;
+
+    &:hover {
+      color: $white;
+      text-decoration: none;
+    }
   }
 
   #header-navigation {
-    @include makeColumn(4);
-
-    @extend .navbar;
 
     #inner-navigation {
       @extend .navbar-inner;
@@ -57,14 +49,8 @@ $headerTextColor: #839496;
             color: $headerTextColor;
             font-weight: bold;
 
-            padding-top: 0;
-            padding-bottom: 0;
-
-            line-height: $lineHeight;
-
-
             &:hover {
-              background-color: lighten($headerBackground, 5%);
+/*              background-color: lighten($headerBackground, 5%); */
             }
           }
         }
@@ -74,31 +60,28 @@ $headerTextColor: #839496;
 
   #header-signin {
     form {
-      @include makeRow();
-      @extend .form-inline;
+      @extend .navbar-form;
+      @extend .pull-right;
 
-      .field {
-       @include makeColumn(2);
-      }
-
-      .actions {
-        @include makeColumn(1);
-
-        input {
-          @extend .btn;
-        }
+      input {
+        @extend .btn;
       }
     }
-  } 
+  }
 
   #header-signout {
-    @include makeColumn(3);
+    @extend .pull-right;
 
-    a {
-      color: $white;
+    p {
+      @extend .navbar-text;
 
-      &:hover {
-        color: $headerTextColor;
+      a {
+        color: $white;
+        display: inline;
+
+        &:hover {
+          color: $headerTextColor;
+        }
       }
     }
   }
