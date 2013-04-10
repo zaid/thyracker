@@ -21,7 +21,7 @@ $navbarHeight : $headerHeight;
 #header {
   @extend .navbar;
 
-  .header-logo {
+  #header-logo {
     @extend .brand;
 
     text-shadow: #444 1px 1px 1px;

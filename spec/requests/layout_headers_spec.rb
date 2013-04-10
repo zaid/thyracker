@@ -9,9 +9,9 @@ describe "LayoutHeaders" do
       page.should have_selector("div#header")
     end
 
-    it "should have a 'header-logo' div" do
+    it "should have a 'header-logo' link" do
       visit "/"
-      page.should have_selector("div#header-logo")
+      page.should have_selector("a#header-logo")
     end
 
     it "should have a 'header-navigation' div" do
