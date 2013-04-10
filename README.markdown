@@ -1,4 +1,4 @@
-# Thyracker [![Code Climate](https://codeclimate.com/github/zaid/thyracker.png)](https://codeclimate.com/github/zaid/thyracker)
+# Thyracker [![Code Climate](https://codeclimate.com/github/zaid/thyracker.png)](https://codeclimate.com/github/zaid/thyracker) [![Build Status](https://travis-ci.org/zaid/thyracker.png)](https://travis-ci.org/zaid/thyracker)
 A thyroid health application capable of tracking TSH, T3 and T4 values and graphing them.
 
 # Demo
