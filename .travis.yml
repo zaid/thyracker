@@ -1,5 +1,7 @@
 language: ruby
 rvm:
   - 1.9.3
-script: bundle exec rspec spec
 services: mongodb
+before_script:
+  - cp config/mongoid.example.yml config/mongoid.yml
+script: bundle exec rspec spec
